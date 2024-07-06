@@ -5,6 +5,11 @@ import petclinic from "../assets/petClinic.png";
 import petdaycare from "../assets/petdaycare.png";
 import pettraining from "../assets/pettraining.png";
 import paw4 from "../assets/paw4.png";
+import bone from "../assets/bone.png";
+import paw from "../assets/paw.png";
+import paw2 from "../assets/paw2.png";
+import paw3 from "../assets/paw3.png";
+
 
 function Categories() {
   const [category, setCategory] = useState("Pet Grooming");
@@ -43,65 +48,79 @@ function Categories() {
   const currentCategory = categoriesData.find((cat) => cat.name === category);
 
   return (
-    <div
-      className="h-[100vh] flex"
-      style={{
-        backgroundImage: `url(${background})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        backgroundRepeat: "no-repeat",
-      }}
-    >
-      <div className="flex flex-col items-start w-[50%] px-36 pt-5">
-        <h1 className="text-3xl font-serif">Categories</h1>
+    <>
+      <div
+        className="h-[100vh] flex"
+        style={{
+          backgroundImage: `url(${background})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+        }}
+      >
+        <div className="flex flex-col items-start w-[50%] px-36 pt-5">
+          <h1 className="text-3xl font-serif">Categories</h1>
 
-        <div className="mt-12">
-          {currentCategory && (
-            <div>
-              <h2 className="text-2xl font-serif font-bold ">{currentCategory.name}</h2>
-              <p className="mt-2 font-sans">{currentCategory.description}</p>
-              <button className="border mt-5 w-[90px] h-[35px] text-xs rounded text-black  bg-[#C7E7E1]">Get Started</button>
-            </div>
-          )}
-        </div>
-
-
-        <div className="absolute bottom-[23%]">
-          <div className="flex gap-2">
-            {categoriesData.map((cat) => (
-              <div
-                key={cat.name}
-                className={`flex items-center rounded ${
-                  cat.name === category ? "bg-[#124C5F]" : ""
-                }`}
-                onClick={() => handleCategoryClick(cat.name)}
-              >
-                <img src={paw4} alt="paw" className="w-8 h-8 cursor-pointer" />
-                <button
-                  className={`w-[130px] h-[25px] font-semibold rounded ${
-                    cat.name === category ? "text-white" : "text-black"
-                  }`}
-                  
-                >
-                  {cat.name}
+          <div className="mt-12">
+            {currentCategory && (
+              <div>
+                <h2 className="text-2xl font-serif font-bold ">
+                  {currentCategory.name}
+                </h2>
+                <p className="mt-2 font-sans">{currentCategory.description}</p>
+                <button className="border mt-5 w-[90px] h-[35px] text-xs rounded text-black  bg-[#C7E7E1]">
+                  Get Started
                 </button>
               </div>
-            ))}
+            )}
+          </div>
+
+          <div className="absolute bottom-[23%]">
+            <div className="flex gap-2">
+              {categoriesData.map((cat) => (
+                <div
+                  key={cat.name}
+                  className={`flex items-center rounded ${
+                    cat.name === category ? "bg-[#124C5F]" : ""
+                  }`}
+                  onClick={() => handleCategoryClick(cat.name)}
+                >
+                  <img
+                    src={paw4}
+                    alt="paw"
+                    className="w-8 h-8 cursor-pointer"
+                  />
+                  <button
+                    className={`w-[130px] h-[25px] font-semibold rounded ${
+                      cat.name === category ? "text-white" : "text-black"
+                    }`}
+                  >
+                    {cat.name}
+                  </button>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
-      </div>
 
-      <div className="px-20 pt-[40px] w-[50%]">
-        {currentCategory && (
-          <img
-            src={currentCategory.url}
-            alt={currentCategory.name}
-            className="mt-5 "
-          />
-        )}
+        <div className="px-20 pt-[40px] w-[50%]">
+          {currentCategory && (
+            <img
+              src={currentCategory.url}
+              alt={currentCategory.name}
+              className="mt-5 "
+            />
+          )}
+        </div>
       </div>
-     
-    </div>
+      <div>
+        <img src={bone} alt="bone" className="absolute bottom-[-30px] left-[10%] w-20 h-20" />
+        <img src={paw3} alt="paw3" className="absolute bottom-[0px] left-[35%] w-20 h-20" />
+        <img src={paw} alt="paw1" className="absolute bottom-[-80px] left-[60%] w-12 h-12" />
+        <img src={paw2} alt="paw2" className="absolute bottom-[-90px] left-[90%] w-20 h-20" />
+        
+      </div>
+    </>
   );
 }
 
